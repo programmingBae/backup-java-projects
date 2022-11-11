@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Kuis2.controllers.MainViewController">
+   <center>
+      <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <GridPane alignment="CENTER" depthTest="ENABLE" hgap="10.0" prefHeight="175.0" prefWidth="800.0" vgap="10.0">
+               <children>
+                  <Label text="ID" GridPane.rowIndex="2" />
+                  <Label prefHeight="21.0" prefWidth="121.0" text="%borrowingDate" GridPane.rowIndex="3" />
+                  <Label text="%member" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Label text="%dateOfReturn" GridPane.rowIndex="4" />
+                  <Label text="%book" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Label text="%language" GridPane.columnIndex="2" />
+                  <ComboBox fx:id="comboMember" prefWidth="314.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <TextField fx:id="txtId" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="comboBahasa" onAction="#changeLanguage" prefWidth="314.0" GridPane.columnIndex="3" />
+                  <ComboBox fx:id="comboBook" prefWidth="314.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <DatePicker fx:id="dateBorrow" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <DatePicker fx:id="dateReturn" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.0" minWidth="10.0" prefWidth="126.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="309.0" minWidth="10.0" prefWidth="257.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.0" minWidth="10.0" prefWidth="68.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="311.0" minWidth="10.0" prefWidth="299.0" />
+               </columnConstraints>
+               <padding>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints maxHeight="20.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="42.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <HBox alignment="TOP_RIGHT" layoutY="175.0" prefHeight="50.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="175.0">
+               <children>
+                  <Button fx:id="btnSave" mnemonicParsing="false" onAction="#saveData" text="%save">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btnUpdate" disable="true" mnemonicParsing="false" onAction="#updateData" text="%update">
+                     <HBox.margin>
+                        <Insets bottom="10.0" right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btnDelete" disable="true" mnemonicParsing="false" onAction="#deleteData" text="%delete">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btnReset" mnemonicParsing="false" onAction="#reset" text="%reset" />
+               </children>
+               <padding>
+                  <Insets right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <TableView fx:id="tableView" layoutY="220.0" onMouseClicked="#selectedItem" prefHeight="349.0" prefWidth="800.0" tableMenuButtonVisible="true">
+               <columns>
+                  <TableColumn fx:id="col1" prefWidth="62.0" text="ID" />
+                  <TableColumn fx:id="col2" prefWidth="156.0" text="%member" />
+                  <TableColumn fx:id="col3" prefWidth="291.0" text="%book" />
+                  <TableColumn fx:id="col4" prefWidth="139.0" text="%borrowingDate" />
+                  <TableColumn fx:id="col5" minWidth="0.0" prefWidth="137.0" text="%dateOfReturn" />
+               </columns>
+               <padding>
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+               </padding>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#openMemberManagement" text="Show Member Management" />
+                  <MenuItem mnemonicParsing="false" onAction="#openBookManagement" text="Show Book Management" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#exitProgram" text="Exit" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

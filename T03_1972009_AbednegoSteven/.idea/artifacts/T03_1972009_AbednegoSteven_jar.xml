@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="T03_1972009_AbednegoSteven:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/T03_1972009_AbednegoSteven_jar</output-path>
+    <root id="archive" name="T03_1972009_AbednegoSteven.jar">
+      <element id="module-output" name="T03_1972009_AbednegoSteven" />
+    </root>
+  </artifact>
+</component>

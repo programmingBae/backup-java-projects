@@ -1,0 +1,66 @@
+ALTER PROCEDURE SPInsertPembayaran
+@IdMurid varchar(13),
+@TanggalPembayaran datetime,
+@TotalBayar money,
+@Keterangan varchar(10)
+
+AS
+BEGIN
+	DECLARE @NOAKHIR INT
+	DECLARE @NOBaru INT
+	DECLARE @IdPembayaran varchar(10)
+	--1.Cari Nomor Akhir
+	select @NoAkhir = convert(int, Max(right(IdPembayaran,4)))
+	from tbPembayaran
+	--2.Cari Nomor Baru
+	if @NoAkhir is null
+		Set @Nobaru=1
+	else
+		Set @NoBaru = @NoAkhir + 1
+		Set @IdPembayaran = 'P'  +
+		RIGHT('000'+Convert(varchar, @NoBaru), 4)
+	--3.Insert Data baru
+	IF @NOBaru = 1 or NOT EXISTS (SELECT IdTagihan FROM tbTagihan WHERE RIGHT(IdTagihan,5) = @IdMurid)
+	BEGIN
+		Insert tbPembayaran (IdPembayaran, IdMurid, TanggalPembayaran,TotalBayar,Keterangan) 
+		Values (@IdPembayaran, @IdMurid, @TanggalPembayaran,@TotalBayar,@Keterangan)
+	END
+	ELSE IF convert(int, datepart(mm,@TanggalPembayaran)) <10
+	BEGIN
+	IF NOT EXISTS (SELECT IdTagihan FROM tbTagihan WHERE RIGHT(IdTagihan,5) = @IdMurid AND SUBSTRING(IdTagihan,2,1) = CONVERT(varchar,convert(int, datepart(mm,@TanggalPembayaran))-1) )
+		BEGIN
+		PRINT 'Tagihan untuk bulan sebelumnya belum lunas'
+		END
+		ELSE IF EXISTS (SELECT IdTagihan FROM tbTagihan WHERE SUBSTRING(IdTagihan,2,1) = convert(int, datepart(mm,@TanggalPembayaran)) AND
+		RIGHT(IdTagihan,5) = @IdMurid)
+		BEGIN
+		PRINT 'Tagihan sudah lunas, tidak perlu membayar kembali'
+		END
+		ELSE IF EXISTS (SELECT IdTagihan FROM tbTagihan WHERE SUBSTRING(IdTagihan,2,1) = CONVERT(varchar,convert(int, datepart(mm,@TanggalPembayaran))-1) AND
+		RIGHT(IdTagihan,5) = @IdMurid) AND NOT EXISTS (SELECT IdTagihan FROM tbTagihan WHERE SUBSTRING(IdTagihan,2,1) = convert(int, datepart(mm,@TanggalPembayaran)) AND
+		RIGHT(IdTagihan,5) = @IdMurid)
+		BEGIN
+		Insert tbPembayaran (IdPembayaran, IdMurid, TanggalPembayaran,TotalBayar,Keterangan) 
+		Values (@IdPembayaran, @IdMurid, @TanggalPembayaran,@TotalBayar,@Keterangan)
+		END
+	END
+	ELSE IF convert(int, datepart(mm,@TanggalPembayaran)) =10
+	BEGIN
+	IF NOT EXISTS (SELECT IdTagihan FROM tbTagihan WHERE RIGHT(IdTagihan,5) = @IdMurid AND SUBSTRING(IdTagihan,2,1) = CONVERT(varchar,convert(int, datepart(mm,@TanggalPembayaran))-1) )
+		BEGIN
+		PRINT 'Tagihan untuk bulan sebelumnya belum lunas'
+		END
+		ELSE IF EXISTS (SELECT IdTagihan FROM tbTagihan WHERE SUBSTRING(IdTagihan,2,2) = convert(int, datepart(mm,@TanggalPembayaran)) AND
+		RIGHT(IdTagihan,5) = @IdMurid)
+		BEGIN
+		PRINT 'Tagihan sudah lunas, tidak perlu membayar kembali'
+		END
+		ELSE IF EXISTS (SELECT IdTagihan FROM tbTagihan WHERE SUBSTRING(IdTagihan,2,1) = CONVERT(varchar,convert(int, datepart(mm,@TanggalPembayaran))-1) AND
+		RIGHT(IdTagihan,5) = @IdMurid) AND NOT EXISTS (SELECT IdTagihan FROM tbTagihan WHERE SUBSTRING(IdTagihan,2,2) = convert(int, datepart(mm,@TanggalPembayaran)) AND
+		RIGHT(IdTagihan,5) = @IdMurid)
+		BEGIN
+		Insert tbPembayaran (IdPembayaran, IdMurid, TanggalPembayaran,TotalBayar,Keterangan) 
+		Values (@IdPembayaran, @IdMurid, @TanggalPembayaran,@TotalBayar,@Keterangan)
+		END
+	END
+END

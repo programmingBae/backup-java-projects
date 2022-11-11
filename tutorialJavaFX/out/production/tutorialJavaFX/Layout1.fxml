@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controller1"
+            >
+    <center>
+        <TilePane alignment="center" >
+            <ImageView fx:id="image">
+                <image>
+                    <Image requestedWidth="300" requestedHeight="500" url="anime1.jpg" />
+                </image>
+            </ImageView>
+            <ImageView fx:id="image2">
+                <image>
+                    <Image requestedWidth="300" requestedHeight="500"  url="anime2.jpg" />
+                </image>
+            </ImageView>
+
+        </TilePane>
+    </center>
+    <left>
+        <VBox alignment="center" fx:id="tes">
+            <Button fx:id="foto1" text="ComboWaifu1" onAction="#foto1" maxWidth="100">
+
+            </Button>
+            <Button fx:id="foto2" text="ComboWaifu2" onAction="#foto2" maxWidth="100">
+
+            </Button>
+            <Button fx:id="foto3" text="ComboWaifu3" onAction="#foto3" maxWidth="100">
+
+            </Button>
+        </VBox>
+    </left>
+    <bottom>
+        <HBox alignment="center">
+            <Label>Kalau ingin tobat gamau jadi wibu lagi, tekan tombol ini</Label>
+            <Button fx:id="button1" text="Tobat gajadi Wibu lagi" onAction="#buttonAction"></Button>
+        </HBox>
+    </bottom>
+
+</BorderPane>

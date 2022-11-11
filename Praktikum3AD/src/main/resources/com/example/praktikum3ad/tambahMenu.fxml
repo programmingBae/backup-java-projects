@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="320.0" prefWidth="418.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.praktikum3ad.Controller.TambahMenuController">
+   <children>
+      <Label layoutX="297.0" layoutY="33.0" text="Tambah Menu" />
+      <Label layoutX="42.0" layoutY="92.0" text="Nama Menu" />
+      <Label layoutX="42.0" layoutY="152.0" text="Harga Menu" />
+      <TextField fx:id="txtMenu" layoutX="42.0" layoutY="117.0" prefHeight="25.0" prefWidth="340.0" />
+      <TextField fx:id="txtHarga" layoutX="42.0" layoutY="183.0" prefHeight="25.0" prefWidth="340.0" />
+      <Label layoutX="42.0" layoutY="221.0" text="Discount" />
+      <Button fx:id="btnCustom" layoutX="212.0" layoutY="246.0" mnemonicParsing="false" onAction="#openCustomDiscountPage" prefHeight="25.0" prefWidth="169.0" text="Custom Discount" />
+      <Button layoutX="40.0" layoutY="281.0" mnemonicParsing="false" onAction="#addMenu" prefHeight="25.0" prefWidth="340.0" text="Add Menu" />
+      <ComboBox fx:id="comboDiscount" layoutX="42.0" layoutY="246.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

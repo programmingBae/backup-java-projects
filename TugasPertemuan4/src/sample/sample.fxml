@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Label layoutX="36.0" layoutY="35.0" text="NRP" />
+      <Label layoutX="36.0" layoutY="70.0" text="Nama" />
+      <Label layoutX="36.0" layoutY="103.0" text="Team" />
+      <TextField fx:id="txtNRP" layoutX="93.0" layoutY="31.0" prefHeight="25.0" prefWidth="476.0" />
+      <TextField fx:id="txtNama" layoutX="93.0" layoutY="66.0" prefHeight="25.0" prefWidth="476.0" />
+      <ComboBox fx:id="comboTeam" layoutX="93.0" layoutY="99.0" prefHeight="25.0" prefWidth="476.0" />
+      <TableView fx:id="tableUser" layoutX="36.0" layoutY="171.0" onMouseClicked="#selectedItem" prefHeight="200.0" prefWidth="540.0">
+        <columns>
+          <TableColumn fx:id="nrp" prefWidth="189.0" text="nrp" />
+            <TableColumn fx:id="nama" prefWidth="218.0" text="nama" />
+          <TableColumn fx:id="team" prefWidth="132.0" text="team" />
+        </columns>
+      </TableView>
+      <Button fx:id="addData" layoutX="406.0" layoutY="136.0" mnemonicParsing="false" onAction="#addData" text="AddData" />
+      <Button layoutX="481.0" layoutY="136.0" mnemonicParsing="false" onAction="#refresh" text="Refresh Table" />
+      <Button layoutX="340.0" layoutY="136.0" mnemonicParsing="false" onAction="#updateData" text="Update" />
+      <Button layoutX="280.0" layoutY="136.0" mnemonicParsing="false" onAction="#deleteData" text="Delete" />
+   </children>
+</AnchorPane>

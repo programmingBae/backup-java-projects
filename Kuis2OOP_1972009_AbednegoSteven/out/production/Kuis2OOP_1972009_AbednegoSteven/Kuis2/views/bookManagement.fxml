@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Kuis2.controllers.BookManagementController">
+   <center>
+      <VBox prefHeight="550.0" prefWidth="737.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane prefHeight="229.0" prefWidth="708.0">
+               <children>
+                  <Label text="ID" />
+                  <Label text="%title" GridPane.rowIndex="1" />
+                  <Label text="%publication" GridPane.columnIndex="2">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField fx:id="txtTitle" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtPublication" prefHeight="31.0" prefWidth="158.0" GridPane.columnIndex="3" />
+                  <TextField fx:id="txtId" GridPane.columnIndex="1" />
+                  <Label GridPane.rowIndex="2" />
+                  <Label text="%publisher" GridPane.rowIndex="2" />
+                  <Label text="%author" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Label text="%bookType" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Button mnemonicParsing="false" onAction="#saveData" text="%save" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                  <TextField fx:id="txtPublisher" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtAuhtor" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtBookType" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="93.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="285.0" minWidth="10.0" prefWidth="285.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="161.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="209.0" />
+               </columnConstraints>
+               <padding>
+                  <Insets left="10.0" right="10.0" top="5.0" />
+               </padding>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <TableView fx:id="tableView" prefHeight="314.0" prefWidth="580.0" tableMenuButtonVisible="true">
+               <columns>
+                  <TableColumn fx:id="col1" prefWidth="61.0" text="ID" />
+                  <TableColumn fx:id="col2" prefWidth="220.0" text="%title" />
+                  <TableColumn fx:id="col3" prefWidth="152.0" text="%publisher" />
+                  <TableColumn fx:id="col4" prefWidth="128.0" text="%publication" />
+                  <TableColumn fx:id="col5" prefWidth="139.0" text="%author" />
+                  <TableColumn fx:id="col6" prefWidth="136.0" text="%bookType" />
+               </columns>
+            </TableView>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>

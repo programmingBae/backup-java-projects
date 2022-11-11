@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.scene.input.KeyCodeCombination?>
+<AnchorPane fx:controller="controller.Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar layoutY="-1.0" prefHeight="22.0" prefWidth="600.0">
+          <menus>
+              <Menu mnemonicParsing="false" text="File">
+                  <items>
+                      <MenuItem accelerator="Alt+Shift+X" onAction="#Exit" fx:id="Exit" mnemonicParsing="false" text="Close">
+                          </MenuItem>
+                  </items>
+              </Menu>
+              <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                      <MenuItem onAction="#About" mnemonicParsing="false" text="About">
+                          <accelerator>
+                              <KeyCodeCombination alt="UP" code="F1" control="UP" meta="UP" shift="UP" shortcut="ANY" />
+                          </accelerator></MenuItem>
+                  </items>
+              </Menu>
+          </menus>
+      </MenuBar>
+      <Label layoutX="24.0" layoutY="54.0" text="Nama" />
+      <Label layoutX="24.0" layoutY="89.0" text="Harga" />
+      <Label layoutX="24.0" layoutY="125.0" text="Supplier" />
+      <Label layoutX="346.0" layoutY="54.0" text="Nama Supplier" />
+      <Button fx:id="saveBarang" onAction="#save" layoutX="56.0" layoutY="161.0" mnemonicParsing="false" text="Save" />
+      <Button fx:id="reset" onAction="#reset" layoutX="115.0" layoutY="161.0" mnemonicParsing="false" text="Reset" />
+      <Button fx:id="update" disable="true" onAction="#update" layoutX="176.0" layoutY="161.0" mnemonicParsing="false" text="Update" />
+      <Button fx:id="saveSupplier" onAction="#saveSupplier" layoutX="488.0" layoutY="94.0" mnemonicParsing="false" text="Save Supplier" />
+      <TextField fx:id="txtNama" layoutX="77.0" layoutY="50.0" />
+      <TextField fx:id="txtHarga" layoutX="77.0" layoutY="85.0" />
+      <TextField fx:id="txtNamaSupplier" layoutX="437.0" layoutY="50.0" />
+      <ComboBox fx:id="comboSupplier" layoutX="77.0" layoutY="121.0" prefWidth="150.0" />
+      <TableView onMouseClicked="#itemsSelected" fx:id="tableBarang" layoutY="192.0" prefHeight="224.0" prefWidth="617.0">
+        <columns>
+          <TableColumn fx:id="kolomNama" prefWidth="254.0" text="Nama" />
+          <TableColumn fx:id="kolomHarga" minWidth="0.0" prefWidth="153.0" text="Harga" />
+            <TableColumn fx:id="kolomSupplier" prefWidth="192.0" text="Supplier" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
